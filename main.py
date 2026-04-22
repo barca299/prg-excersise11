@@ -1,23 +1,25 @@
 
-import random
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
 
-def random_numbers(count, low=0, high=100):
-    return [random.randint(low, high) for _ in range(count)]
+    def area(self):
+        return self.width * self.height
 
+    def perimeter(self):
+        return 2 * (self.width + self.height)
 
+    def fencing_cost(self, price_per_meter):
+        return self.perimeter() * price_per_meter
 
+rectangles = [
+    Rectangle(3, 5),
+    Rectangle(10, 20),
+    Rectangle(1, 1),
+    Rectangle(7, 2),
+    Rectangle(4, 8),
+]
 
-
-
-
-#def main():
-
-
-
-if __name__ == "__main__":
-    values = random_numbers(10)  # 10 čísel v rozsahu 0–100
-    print(values)  # např. [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
-
-    small = random_numbers(5, low=0, high=20)  # 5 čísel v rozsahu 0–20
-    print(small)
-    #main()
+for rect in rectangles:
+    print(rect.area())
